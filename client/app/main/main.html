@@ -1,9 +1,8 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 <header class="hero-unit" id="banner">
     <div class="container">
-        <h1>'Allo, 'Allo!</h1>
-        <p class="lead">Kick-start your next web app with Angular Fullstack</p>
-        <img src="assets/images/yeoman.png" alt="I'm Yeoman">
+        <h1>BableLand</h1>
+        <p class="lead">Speak with each others in the language you want to learn</p>
     </div>
 </header>
 <div class="container">
@@ -12,15 +11,18 @@
             <h1 class="page-header">Features:</h1>
             <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="user in socket.users
 ">
-                <li><img ng-src="{{user.google.image.url}}">{{user.name}}, {{user.google.gender}}, {{user.google.language}}</li>
+                <li><img ng-src="{{user.google.image.url}}">{{user.name}}, {{user.google.gender}}, {{user.google.language}}
+                    <div class="g-hangout" data-render="createhangout" invites="[{ id : '{{user.email}}', invite_type : 'EMAIL' }]">
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
 </div>
 <footer class="footer">
     <div class="container">
-        <p>Angular Fullstack v2.1.1 |
-            <a href="https://twitter.com/tyhenkel">@tyhenkel</a> |
-            <a href="https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open">Issues</a></p>
+        <p>Bableland
+            <!--<a href="https://twitter.com/tyhenkel">@tyhenkel</a> |
+            <a href="https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open">Issues</a></p>-->
     </div>
 </footer>

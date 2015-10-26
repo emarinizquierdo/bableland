@@ -18,6 +18,7 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  require('../api/ruser/ruser.socket').register(socket);
   require('../api/vuser/vuser.socket').register(socket);
   require('../api/thing/thing.socket').register(socket);
 }

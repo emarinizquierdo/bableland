@@ -3,7 +3,7 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-var VuserSchema = new Schema({
+var RuserSchema = new Schema({
     name: String,
     nick: String,
     sex: String,
@@ -16,4 +16,4 @@ var VuserSchema = new Schema({
     active: Boolean,
 });
 
-module.exports = mongoose.model('Vuser', VuserSchema);
+module.exports = mongoose.model('Ruser', RuserSchema);

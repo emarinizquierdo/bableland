@@ -32,3 +32,51 @@
 .navbar-text {
     margin-left: 15px;
 }
+
+.gridListdemoDynamicTiles .gray {
+    background: #f5f5f5;
+}
+
+.gridListdemoDynamicTiles .green {
+    background: #b9f6ca;
+}
+
+.gridListdemoDynamicTiles .yellow {
+    background: #ffff8d;
+}
+
+.gridListdemoDynamicTiles .blue {
+    background: #84ffff;
+}
+
+.gridListdemoDynamicTiles .darkBlue {
+    background: #80d8ff;
+}
+
+.gridListdemoDynamicTiles .deepBlue {
+    background: #448aff;
+}
+
+.gridListdemoDynamicTiles .purple {
+    background: #b388ff;
+}
+
+.gridListdemoDynamicTiles .lightPurple {
+    background: #8c9eff;
+}
+
+.gridListdemoDynamicTiles .red {
+    background: #ff8a80;
+}
+
+.gridListdemoDynamicTiles .pink {
+    background: #ff80ab;
+}
+
+.md-avatar-user {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-right: 16px;
+    border-radius: 50%;
+    box-sizing: content-box;
+}

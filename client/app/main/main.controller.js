@@ -2,8 +2,7 @@
 
 angular.module('bablelandApp')
     .controller('MainCtrl', function($scope, $http, socket, Auth) {
-        $scope.awesomeThings = [];
-        $scope.rusers = [];
+
         $scope.socket = socket;
 
         var user = Auth.getCurrentUser();
@@ -14,46 +13,57 @@ angular.module('bablelandApp')
 
         socket.joinToRoom(user);
 
-        $http.get('/api/things').success(function(awesomeThings) {
-            $scope.awesomeThings = awesomeThings;
-        });
-
-        $http.get('/api/rusers').success(function(rusers) {
-            $scope.rusers = rusers;
-
-        });
-
-        $scope.addThing = function() {
-            if ($scope.newThing === '') {
-                return;
+        $scope.$watch('socket.users', function(p_new, p_old) {
+            if (p_new != p_old) {
+                buildGridModel($scope.socket.users);
             }
-            $http.post('/api/things', {
-                name: $scope.newThing
-            });
-            $scope.newThing = '';
-        };
-
-        $scope.deleteThing = function(ruser) {
-            $http.delete('/api/things/' + ruser._id);
-        };
-
-        $scope.addRuser = function() {
-            if ($scope.newRuser === '') {
-                return;
-            }
-            $http.post('/api/rusers', {
-                name: $scope.newRuser
-            });
-            $scope.newRuser = '';
-        };
-
-        $scope.deleteRuser = function(ruser) {
-            $http.delete('/api/rusers/' + ruser._id);
-        };
-
-
-        $scope.$on('$destroy', function() {
-            socket.unsyncUpdates('thing');
-            socket.unsyncUpdates('ruser');
         });
+
+        function buildGridModel(people) {
+            if (!people) return;
+            for (var j = 0; j < people.length; j++) {
+                people[j].span = {
+                    row: 1,
+                    col: 1
+                };
+                switch (j + 1) {
+                    case 1:
+                        people[j].background = "red";
+                        people[j].span.row = people[j].span.col = 2;
+                        break;
+                    case 2:
+                        people[j].background = "green";
+                        break;
+                    case 3:
+                        people[j].background = "darkBlue";
+                        break;
+                    case 4:
+                        people[j].background = "blue";
+                        people[j].span.col = 2;
+                        break;
+                    case 5:
+                        people[j].background = "yellow";
+                        people[j].span.row = people[j].span.col = 2;
+                        break;
+                    case 6:
+                        people[j].background = "pink";
+                        break;
+                    case 7:
+                        people[j].background = "darkBlue";
+                        break;
+                    case 8:
+                        people[j].background = "purple";
+                        break;
+                    case 9:
+                        people[j].background = "deepBlue";
+                        break;
+                    case 10:
+                        people[j].background = "lightPurple";
+                        break;
+                    case 11:
+                        people[j].background = "yellow";
+                        break;
+                }
+            }
+        }
     });

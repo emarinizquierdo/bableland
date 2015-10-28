@@ -1,0 +1,6 @@
+<div ng-controller="VNavbarCtrl">
+    <nav class="mdl-navigation">
+        <a ng-repeat="item in menu" ng-class="{active: isActive(item.link)}" class="mdl-navigation__link" ng-href="{{item.link}}">{{item.title}}</a>
+        <a ng-show="isAdmin()" class="mdl-navigation__link" href="/admin" ng-class="{active: isActive('/admin')}">Admin</a>
+    </nav>
+</div>

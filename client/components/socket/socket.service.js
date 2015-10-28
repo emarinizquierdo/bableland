@@ -2,10 +2,12 @@
 'use strict';
 
 angular.module('bablelandApp')
-    .service('socket', function($rootScope, socketFactory) {
+    .service('socket', function($rootScope, $location, socketFactory) {
+
+        var _host = ($location.host() == "localhost") ? '' : 'bableland-nefele.rhcloud.com:8000';
 
         // socket.io now auto-configures its connection when we ommit a connection url
-        var ioSocket = io('', {
+        var ioSocket = io(_host, {
             // Send auth token on connection, you will need to DI the Auth service above
             // 'query': 'token=' + Auth.getToken()
             path: '/socket.io-client'

@@ -19,6 +19,7 @@ angular.module('bablelandApp')
             }
         });
 
+
         function buildGridModel(people) {
             if (!people) return;
             for (var j = 0; j < people.length; j++) {
@@ -26,10 +27,9 @@ angular.module('bablelandApp')
                     row: 1,
                     col: 1
                 };
-                switch (j + 1) {
+                switch ((j + Math.round(Math.random(10) * 11)) % 11) {
                     case 1:
                         people[j].background = "red";
-                        people[j].span.row = people[j].span.col = 2;
                         break;
                     case 2:
                         people[j].background = "green";
@@ -39,11 +39,9 @@ angular.module('bablelandApp')
                         break;
                     case 4:
                         people[j].background = "blue";
-                        people[j].span.col = 2;
                         break;
                     case 5:
                         people[j].background = "yellow";
-                        people[j].span.row = people[j].span.col = 2;
                         break;
                     case 6:
                         people[j].background = "pink";
@@ -62,6 +60,17 @@ angular.module('bablelandApp')
                         break;
                     case 11:
                         people[j].background = "yellow";
+                        break;
+                }
+                switch ((j + Math.round(Math.random(10) * 11)) % 11) {
+                    case 1:
+                        people[j].span.row = people[j].span.col = 2;
+                        break;
+                    case 2:
+                        people[j].span.col = 2;
+                        break;
+                    case 3:
+                        people[j].span.row = people[j].span.col = 2;
                         break;
                 }
             }

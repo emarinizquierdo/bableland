@@ -9,7 +9,7 @@ angular.module('bablelandApp', [
         'ngMaterial',
         'ngMdIcons'
     ])
-    .config(function($routeProvider, $locationProvider, $httpProvider) {
+    .config(function($routeProvider, $locationProvider, $httpProvider, $mdThemingProvider) {
         $routeProvider
             .otherwise({
                 redirectTo: '/'
@@ -17,6 +17,11 @@ angular.module('bablelandApp', [
 
         $locationProvider.html5Mode(true);
         $httpProvider.interceptors.push('authInterceptor');
+
+        $mdThemingProvider.theme('default')
+            .primaryPalette('blue')
+            .accentPalette('light-blue');
+
     })
 
 .factory('authInterceptor', function($rootScope, $q, $cookieStore, $location) {

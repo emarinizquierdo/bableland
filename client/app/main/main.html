@@ -1,20 +1,24 @@
 <div>
     <md-content class="md-padding">
         <md-card>
-            <img ng-src="{{imagePath}}" class="md-card-image" alt="Washed Out">
             <md-card-content>
-                <h2 class="md-title">Paracosm</h2>
+                <h2 class="md-title">Speak now!</h2>
                 <p>
-                    The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+                    Do you want to speak with people in a specific language. Pick your preferences, and select your contacts!
                 </p>
                 <div flex ng-cloak class="gridListdemoDynamicTiles">
-                    <md-grid-list md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter="8px" md-gutter-gt-sm="4px">
-                        <md-grid-tile ng-repeat="user in socket.users" md-rowspan="{{user.span.row}}" md-colspan="{{user.span.col}}" md-colspan-sm="1" ng-class="user.background">
+                    <md-grid-list md-cols-sm="1" md-rows-sm="1" md-cols-md="3" md-cols-gt-md="5" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter="8px" md-gutter-gt-sm="4px">
+                        <md-grid-tile class="card-user" ng-repeat="user in socket.users" md-rowspan="{{user.span.row}}" md-colspan="{{user.span.col}}" md-colspan-sm="1" ng-class="user.background">
                             <img class="md-avatar-user" ng-src="{{user.google.image.url}}">
-                            <md-grid-tile-footer>{{user.google.gender}}, {{user.google.language}}
-                                <div class="g-hangout" data-render="createhangout" invites="[{ id : '{{user.email}}', invite_type : 'EMAIL' }]">
+                            <md-grid-tile-footer class="card-user-detail" layout="row" layout-align="start start" layout-padding>
+                                <h3 class="md-title">{{user.name}}</h3>
+                                <div class="user-detail-list">
+                                    <p>{{user.google.gender}}</p>
+                                    <div>{{user.google.language}}</div>
+                                    <div class="g-hangout" data-render="createhangout" invites="[{ id : '{{user.email}}', invite_type : 'EMAIL' }]">
+                                    </div>
                                 </div>
-                                <h3>{{user.name}}</h3></md-grid-tile-footer>
+                            </md-grid-tile-footer>
                         </md-grid-tile>
                     </md-grid-list>
                 </div>

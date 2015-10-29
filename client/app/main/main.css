@@ -80,3 +80,25 @@
     border-radius: 50%;
     box-sizing: content-box;
 }
+
+.card-user-detail {
+    padding: 13px!important;
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -ms-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+
+.card-user-detail h3 {
+    margin-left: 0px;
+}
+
+.card-user-detail .user-detail-list {
+    padding: 5px;
+}
+
+.card-user:hover .card-user-detail {
+    height: 100%;
+    background-color: rgb(0, 0, 0, .50);
+}

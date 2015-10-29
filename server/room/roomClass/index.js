@@ -4,6 +4,9 @@ function Room(name, id, owner) {
 
 Room.prototype.addPerson = function(person, callback) {
     var exists = false;
+
+    if (!person._id) return;
+
     for (i = 0; i < this.people.length; i++) {
         if (this.people[i]._id == person._id) {
             exists = true;

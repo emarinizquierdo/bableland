@@ -1,21 +1,51 @@
 'use strict';
 
 angular.module('bablelandApp')
-  .controller('SettingsCtrl', function ($scope, User, Auth) {
-    $scope.errors = {};
+    .controller('SettingsCtrl', function($scope, User, Auth, countries, languages) {
 
-    $scope.changePassword = function(form) {
-      $scope.submitted = true;
-      if(form.$valid) {
-        Auth.changePassword( $scope.user.oldPassword, $scope.user.newPassword )
-        .then( function() {
-          $scope.message = 'Password successfully changed.';
-        })
-        .catch( function() {
-          form.password.$setValidity('mongoose', false);
-          $scope.errors.other = 'Incorrect password';
-          $scope.message = '';
-        });
-      }
-		};
-  });
+        /*
+            Private Variables
+         */
+
+
+        /*
+            Public Variables
+         */
+        $scope.user;
+        $scope.countries = countries;
+        $scope.languages = languages;
+        $scope.sexs = [{
+            name: "Male"
+        }, {
+            name: "Female"
+        }];
+
+        /*
+            Public Methods
+         */
+        $scope.updateMe = updateMe;
+
+
+        /*
+            Private Methods
+         */
+        function updateMe(user) {
+            $scope.submitted = true;
+
+            User.update(user, function(user) {
+                $scope.user = user;
+            }, function() {
+
+            });
+        }
+
+        function getMe(user) {
+            $scope.submitted = true;
+
+            User.get(function(user) {
+                $scope.user = user;
+            }, function() {});
+        }
+
+        getMe();
+    });

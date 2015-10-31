@@ -1,28 +1,20 @@
-<div class="mdl-layout__header-row" ng-controller="NavbarCtrl">
-    <!-- Title -->
-    <span class="mdl-layout-title">{{item.title}}</span>
-    <!-- Add spacer, to align navigation to the right -->
-    <div class="mdl-layout-spacer"></div>
-    <!-- Navigation. We hide it in small screens. -->
-    <nav class="mdl-navigation mdl-layout--large-screen-only">
-    </nav>
-</div>
-<div ng-cloak>
+<div ng-controller="NavbarCtrl" class="main-navbar
+">
     <md-content>
         <md-toolbar>
             <div class="md-toolbar-tools">
-                <md-button class="md-icon-button" aria-label="Settings">
-                    <ng-md-icon icon="menu"></ng-md-icon>
+                <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleSidebar()">
+                    <ng-md-icon icon="menu" class="menu-icon"></ng-md-icon>
                 </md-button>
                 <h2>
-          <span>Toolbar with Icon Buttons</span>
-        </h2>
+                  <span>{{item.title}}</span>
+                </h2>
                 <span flex></span>
-                <a ng-show="isAdmin()" class="mdl-navigation__link" href="/admin">Admin</a>
-                <a ng-hide="isLoggedIn()" class="mdl-navigation__link" href="/signup">Sign up</a>
-                <a ng-hide="isLoggedIn()" class="mdl-navigation__link" href="/login">Login</a>
-                <a ng-show="isLoggedIn()" class="mdl-navigation__link" href="">Hello {{ getCurrentUser().name }}</a>
-                <a ng-show="isLoggedIn()" class="mdl-navigation__link" ng-click="logout()" href="/login">Logout</a>
+                <a ng-show="isAdmin()" class="mdl-navigation__link md-subhead" href="/admin">Admin</a>
+                <a ng-hide="isLoggedIn()" class="mdl-navigation__link md-subhead" href="/signup">Sign up</a>
+                <a ng-hide="isLoggedIn()" class="mdl-navigation__link md-subhead" href="/login">Login</a>
+                <a ng-show="isLoggedIn()" class="mdl-navigation__link md-subhead" href="/settings">Hello {{ getCurrentUser().name }}</a>
+                <a ng-show="isLoggedIn()" class="mdl-navigation__link md-subhead" ng-click="logout()" href="/login">Logout</a>
             </div>
         </md-toolbar>
     </md-content>

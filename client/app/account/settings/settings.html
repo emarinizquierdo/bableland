@@ -1,39 +1,49 @@
-<div ng-include="'components/navbar/navbar.html'"></div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-      <h1>Change Password</h1>
-    </div>
-    <div class="col-sm-12">
-      <form class="form" name="form" ng-submit="changePassword(form)" novalidate>
-
-        <div class="form-group">
-          <label>Current Password</label>
-
-          <input type="password" name="password" class="form-control" ng-model="user.oldPassword"
-                 mongoose-error/>
-          <p class="help-block" ng-show="form.password.$error.mongoose">
-              {{ errors.other }}
-          </p>
-        </div>
-
-        <div class="form-group">
-          <label>New Password</label>
-
-          <input type="password" name="newPassword" class="form-control" ng-model="user.newPassword"
-                 ng-minlength="3"
-                 required/>
-          <p class="help-block"
-             ng-show="(form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || submitted)">
-            Password must be at least 3 characters.
-          </p>
-        </div>
-
-        <p class="help-block"> {{ message }} </p>
-
-        <button class="btn btn-lg btn-primary" type="submit">Save changes</button>
-      </form>
-    </div>
-  </div>
-</div>
+<md-content class="md-padding">
+    <form name="userForm">
+        <md-card>
+            <md-card-content>
+                <h2 class="md-title">My info</h2>
+                <div layout layout-sm="column">
+                    <md-input-container flex>
+                        <label>Alias</label>
+                        <input ng-model="user.alias">
+                    </md-input-container>
+                    <md-datepicker ng-model="user.birthdate" md-placeholder="Birth Date"></md-datepicker>
+                </div>
+                <div layout layout-sm="column">
+                    <md-input-container flex>
+                        <label>Language</label>
+                        <md-select ng-model="user.language">
+                            <md-option ng-repeat="language in languages.list" value="{{language}}">
+                                {{language.name}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                    <md-input-container flex>
+                        <label>Sex</label>
+                        <md-select ng-model="user.sex">
+                            <md-option ng-repeat="sex in sexs" value="{{sex}}">
+                                {{sex.name}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                    <md-input-container flex>
+                        <label>Country</label>
+                        <md-select ng-model="user.country">
+                            <md-option ng-repeat="country in countries.list" value="{{country}}">
+                                {{country.name}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+                <md-input-container class="md-block">
+                    <label>Why you want to learn that language?</label>
+                    <textarea ng-model="user.biography" columns="1" md-maxlength="150"></textarea>
+                </md-input-container>
+            </md-card-content>
+            <div class="md-actions" layout="row" layout-align="end center">
+                <md-button class="md-raised md-primary" ng-click="updateMe(user)">Save</md-button>
+            </div>
+        </md-card>
+    </form>
+</md-content>

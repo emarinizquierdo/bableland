@@ -8,7 +8,7 @@ module.exports = {
         uri: 'mongodb://localhost/bableland-dev'
     },
 
-    seedDB: true,
+    seedDB: false,
 
     google: {
         clientID: '536470903952-uit2nvn0qk34ijn26dalnb307jm3i0ii.apps.googleusercontent.com',

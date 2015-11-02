@@ -13,8 +13,11 @@
                             <md-grid-tile-footer class="card-user-detail" layout="row" layout-align="start start" layout-padding>
                                 <h3 class="md-title">{{user.name}}</h3>
                                 <div class="user-detail-list">
+                                    <p>{{user.sex}}</p>
+                                    <div>{{user.language}}</div>
                                     <p>{{user.google.gender}}</p>
-                                    <div>{{user.google.language}}</div>
+                                    <p>{{user.country}}</p>
+                                    <p>{{user.birthdate | date}}</p>
                                     <div class="g-hangout" data-render="createhangout" invites="[{ id : '{{user.email}}', invite_type : 'EMAIL' }]">
                                     </div>
                                 </div>

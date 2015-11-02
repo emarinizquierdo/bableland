@@ -31,7 +31,7 @@ angular.module('bablelandApp')
          */
         function updateMe(user) {
             $scope.submitted = true;
-
+            debugger;
             User.update(user, function(user) {
                 $scope.user = user;
             }, function() {

@@ -14,7 +14,7 @@
                     <md-input-container flex>
                         <label>Language</label>
                         <md-select ng-model="user.language">
-                            <md-option ng-repeat="language in languages.list" value="{{language}}">
+                            <md-option ng-repeat="language in languages.list" value="{{language.name}}">
                                 {{language.name}}
                             </md-option>
                         </md-select>
@@ -22,7 +22,7 @@
                     <md-input-container flex>
                         <label>Sex</label>
                         <md-select ng-model="user.sex">
-                            <md-option ng-repeat="sex in sexs" value="{{sex}}">
+                            <md-option ng-repeat="sex in sexs" value="{{sex.name}}">
                                 {{sex.name}}
                             </md-option>
                         </md-select>
@@ -30,7 +30,7 @@
                     <md-input-container flex>
                         <label>Country</label>
                         <md-select ng-model="user.country">
-                            <md-option ng-repeat="country in countries.list" value="{{country}}">
+                            <md-option ng-repeat="country in countries.list" value="{{country.name}}">
                                 {{country.name}}
                             </md-option>
                         </md-select>
